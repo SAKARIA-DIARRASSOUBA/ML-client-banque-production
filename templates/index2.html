@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Learning API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Prediction of clients</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+      <input type="value" name="CreditScore" placeholder="CreditScore :  400 to 800 ex 567" required="required" />
+      <input type="text" name="Geography" placeholder="Geography : France  or Spain or Germany" required="required" />
+      <input type="text" name="Gender" placeholder="Gender : Male or Female" required="required" />
+      <input type="value" name="Age" placeholder="Age : beteween 23 to 80" required="required" />
+      <input type="value" name="Nbre produits" placeholder="Nbre produits 1 to 10 " required="required" />
+      <input type="value" name="Balance" placeholder="Balance : 0 to 200000" required="required" />
+      <input type="value" name="EstimatedSalary" placeholder="EstimatedSalary : 10000 to 150000" required="required" />
+      
+          
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+  
+   <br>
+   
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
